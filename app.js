@@ -17,10 +17,10 @@ class Application {
       await db.initializeTables();
       
       // Schedule weekly newsletter (Sunday at 8:00 AM)
-      cron.schedule('04 19 * * *', () => newsletterController.sendWeeklyNewsletter());
+      cron.schedule('0 8 * * 0', () => newsletterController.sendWeeklyNewsletter());
       
       // Schedule daily updates (every day at 6:00 PM)
-      cron.schedule('04 19 * * *', () => newsletterController.sendDailyUpdates());
+      cron.schedule('0 18 * * *', () => newsletterController.sendDailyUpdates());
       
       // Schedule scraping (every 5 minutes)
       setInterval(async () => {
